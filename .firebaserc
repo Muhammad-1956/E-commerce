@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "workspace-bd51d": {
+      "hosting": {
+        "admin": [
+          "workspace-bd51d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "workspace-bd51d"
+  }
+}

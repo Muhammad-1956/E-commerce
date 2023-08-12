@@ -1,0 +1,61 @@
+<div class="selected-product d-flex flex-column">
+  <div class="path">
+    <p class="text-secondary fw-bold">Home / Popular Products / Product Details / <span class="text-dark">{{selected_product?.name}}</span></p>
+  </div>
+  <div class="product-details d-flex justify-content-between flex-wrap">
+    <div class="images d-flex flex-column">
+      <img id="image" src="{{selected_product?.imageUrl}}" alt="Product Image Error">
+      <div class="d-flex justify-content-between">
+        <img id="image-0" src="{{selected_product?.imageUrl}}" (click)="change(0)" alt="">
+        <img id="image-1" src="{{selected_product?.imageUrl}}" (click)="change(1)" alt="">
+        <img id="image-2" src="{{selected_product?.imageUrl}}" (click)="change(2)" alt="">
+        <img id="image-3" src="{{selected_product?.imageUrl}}" (click)="change(3)" alt="">
+      </div>
+    </div>
+    <div class="details">
+      <div class="header">
+        <h2 class="fw-bold">{{selected_product?.name}}</h2>
+      <p>a perfect balance of exhilarating high-fidelity audio and the effortless magic of {{selected_product?.name}}</p>
+      </div>
+      <div class="body">
+        <div class="section-1">
+          <h3 class="fw-bold"><span>{{selected_product?.price | currency:'USD':'symbol':'1.2-2'}}</span> or {{installment}}/month</h3>
+      <p class="text-secondary">Suggested payments with 6 months special financing</p>
+        </div>
+      <div class="section-2 py-3">
+        <h4 class="fw-bold">Choose a Color</h4>
+        <div class="colors d-flex justify-content-start">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="section-3 d-flex justify-content-start align-items-center flex-wrap">
+        <div class="counter">
+          <span (click)="decrease()">-</span>
+          <span>{{quantity}}</span>
+          <span (click)="increase()">+</span>
+        </div>
+        <div class="remaining-items">
+          <p>Only <span class="fw-bold">{{remaining_items}} Items</span> Left! Don't miss it</p>
+        </div>
+      </div>
+      <div class="section-4 d-flex justify-content-start align-items-center">
+        <button class="btn">{{'buy now' | titlecase}}</button>
+        <button class="btn" (click)="addToCart()">{{'add to cart'| titlecase}}</button>
+      </div>
+    </div>
+    <div class="footer d-flex justify-content-between">
+      <div>
+        <h4>{{'free delivery' | titlecase}}</h4>
+        <a class="text-dark" routerLink="">Enter your Postal code for Delivery Availability</a>
+      </div>
+      <div>
+        <h4>{{'return delivery' | titlecase}}</h4>
+        <p>Free 30days Delivery Returns. <a class="text-dark" routerLink="">Details</a></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

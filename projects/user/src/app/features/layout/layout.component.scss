@@ -1,0 +1,40 @@
+//Variables
+$dunkle-blau: #223040;
+$hell-yellow: #fdda06;
+$hell-grau: #344456;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.offer{
+  font-size: .9rem;
+  background-color: $dunkle-blau;
+  color: white;
+  border-bottom: 1px solid $hell-grau;
+  span{
+    font-size: .95rem;
+    a{
+      color: $hell-yellow;
+    }
+  }
+}
+.navbar{
+  background-color: $dunkle-blau;
+  li{
+    padding: 0px 14px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    a{
+      color: white;
+      &:hover{
+        color: $hell-yellow;
+      }
+
+    }
+  }
+  button{
+    background-color: $hell-yellow;
+  }
+}
+.active{
+  color: black
+}

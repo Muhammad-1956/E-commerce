@@ -1,0 +1,28 @@
+//Variables
+$dunkle-blau: #223040;
+$hell-yellow: #fdda06;
+$hell-grau: #344456;
+.card{
+  width: fit-content;
+  margin-right: 10px;
+  margin-bottom: 1.25vw;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  p{
+    strong{
+      color: $hell-yellow;
+    }
+  }
+  .btn{
+    background-color: $hell-grau;
+    color: white;
+    font-weight: bold;
+  }
+  &:hover{
+    .btn{
+      background-color: $hell-yellow;
+    }
+
+  }
+}

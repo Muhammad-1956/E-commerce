@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-start flex-wrap bg-light rounded my-4 py-4">
+  <div *ngFor="let product of products; index as i" class="col-xl-3 col-lg-4 col-sm-6">
+    <div class="card">
+      <div routerLink="product-details/{{product.id}}">
+        <img class="w-100" src="{{product.imageUrl}}" alt="">
+      <h5>{{product.name}}</h5>
+      <p class="star">
+        <strong>&star;</strong>
+        <strong>&star;</strong>
+        <strong>&star;</strong>
+        <strong>&star;</strong>
+        <strong style="color: gray;">&star;</strong>
+      </p>
+    <p>{{product.price | currency}}</p>
+      </div>
+    <button class="btn fw-bold" (click)="addToCart(i)">{{'add to cart' | titlecase}}</button>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.container{
+  .login-container{
+      form{
+        input{
+          padding: 10px 0px 10px 5px;
+        }
+        a{
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+      .card{
+        .card-body{
+          img{
+            width:24px;
+            height:24px;
+          }
+        }
+      }
+  }
+}
