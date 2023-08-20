@@ -1,0 +1,20 @@
+<div class="my-4" *ngIf="!show">
+    <h2 class="fw-bold mb-3">Blog</h2>
+    <div class="card-slider-container mb-2">
+      <div class="card-slider">
+        <div class="card rounded-top" *ngFor="let blog of blogs; index as id">
+          <div>
+            <div class="image">
+              <img class="w-100" src="{{blog.url}}" alt="">
+            </div>
+            <div class="card-body">
+              <h5>{{blog.title}}</h5>
+              <p>{{blog.description}}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Spinner Component -->
+<app-spinner *ngIf="show"></app-spinner>

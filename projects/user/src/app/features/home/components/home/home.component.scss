@@ -1,0 +1,80 @@
+//Variables
+$dunkle-blau: #223040;
+$hell-yellow: #fdda06;
+$hell-grau: #344456;
+
+.shield{
+    .airpods{
+      background-image: url("../../../../../assets/extra-banner1.88e5e3e0.png");
+      background-repeat: no-repeat;
+      height: 240px;
+      width: 100%;
+      color: rgb(14, 14, 55);
+      a{
+        color: rgb(14, 14, 55);
+      }
+    }
+    .playstation{
+      background-image: url("../../../../../assets/download\ \(1\).png");
+      background-repeat: no-repeat;
+      height: 240px;
+      width: 100%;
+      color: white;
+      a{
+        color: white;
+      }
+    }
+  }
+.offers{
+  flex-wrap: wrap;
+  .air{
+    background-image: url("../../../../../assets/extra-banner1.88e5e3e0.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 240px;
+    width: 49%;
+    margin-bottom: 1vh;
+    color: rgb(14, 14, 55);
+    transition: transform 1s ease-in-out;
+    a{
+      color: rgb(14, 14, 55);
+    }
+    div{
+      width: 46%;
+      padding: 0px 2vw;
+    }
+  }
+  .play{
+    background-image: url("../../../../../assets/download\ \(1\).png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 240px;
+    width: 49%;
+    color: white;
+    a{
+      color: white;
+    }
+    div{
+      width: 49%;
+      padding: 0px 2vw;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 992px){
+  .play,.air{
+    width: 100% !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 509px){
+  .offers{
+    justify-content: center !important;
+    .air,.play{
+
+      div{
+        width: 80% !important;
+      }
+    }
+  }
+}
+

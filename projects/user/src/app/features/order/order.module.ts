@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderPlacementComponent } from './components/order-placement/order-placement.component';
-import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    OrderPlacementComponent,
-    OrderHistoryComponent
+    OrderPlacementComponent
   ],
   imports: [
     CommonModule,
-    OrderRoutingModule
+    OrderRoutingModule,
+    SharedModule
   ]
 })
 export class OrderModule { }

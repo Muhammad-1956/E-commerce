@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { CartRoutingModule } from './cart-routing.module';
 import { CartListingComponent } from './components/cart-listing/cart-listing.component';
-import { AddItemComponent } from './components/add-item/add-item.component';
-import { RemoveItemComponent } from './components/remove-item/remove-item.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    CartListingComponent,
-    AddItemComponent,
-    RemoveItemComponent
+    CartListingComponent
   ],
   imports: [
     CommonModule,
-    CartRoutingModule
+    CartRoutingModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class CartModule { }

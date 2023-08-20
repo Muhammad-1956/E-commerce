@@ -12,9 +12,7 @@ $hell-grau: #344456;
   margin: 6px 0px 6px 0px;
     border-radius: 20px;
     padding: 20px;
-    box-shadow: rgba(5, 18, 69, 0.78) 5px 5px, rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    // box-shadow: rgba(5, 18, 69, 0.4) 5px 5px, rgba(5, 18, 69, 0.3) 10px 10px, rgba(5, 18, 69, 0.2) 15px 15px, rgba(5, 18, 69, 0.1) 20px 20px, rgba(5, 18, 69, 0.05) 25px 25px, rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    // box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px;
+    box-shadow: rgba(5, 18, 69, 0.4) 5px 5px, rgba(5, 18, 69, 0.3) 10px 10px, rgba(5, 18, 69, 0.2) 15px 15px, rgba(5, 18, 69, 0.1) 20px 20px, rgba(5, 18, 69, 0.05) 25px 25px, rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   .path{
     margin-bottom: 9px;
   }
@@ -44,29 +42,12 @@ $hell-grau: #344456;
     }
     .details{
       width: 49%;
-      .header{
-        h2{
-
-        }
-        p{
-
-        }
-      }
       .body{
-        .section-1{
+        .financing{
           border-bottom: 3px solid rgba(198, 193, 193, 0.573);
-          h3{
-
-          }
-          p{
-
-          }
         }
-        .section-2{
+        .palette-color{
           border-bottom: 3px solid rgba(198, 193, 193, 0.573);
-          h4{
-
-          }
           .colors{
             gap: 10px;
             span{
@@ -81,15 +62,15 @@ $hell-grau: #344456;
                 @include linearGradient(rgb(14, 11, 60),rgb(237, 237, 237))
               }
               &:nth-child(3){
-                @include linearGradient(rgb(141, 22, 81), rgb(255, 51, 139))
+                @include linearGradient(rgb(208, 196, 202), rgb(255, 51, 139))
               }
               &:nth-child(4){
-                @include linearGradient(rgb(73, 233, 201), rgb(228, 228, 228))
+                @include linearGradient(rgb(73, 196, 233), rgb(228, 228, 228))
               }
             }
           }
         }
-        .section-3{
+        .quantity{
           padding: 1em 0em;
           gap: 3vw;
           .counter{
@@ -107,18 +88,6 @@ $hell-grau: #344456;
                 }
               }
             }
-            // &::before{
-            //   content: '-';
-            //   font-size: 2.1rem;
-            //   padding-right: 20px;
-            //   // font-weight: bold;
-            // }
-            // &::after{
-            //   content: '+';
-            //   font-size: 2.1rem;
-            //   padding-left: 20px;
-            //   // font-weight: bold;
-            // }
           }
           .remaining-items{
             p{
@@ -129,23 +98,13 @@ $hell-grau: #344456;
             }
           }
         }
-        .section-4{
+        .sale-process{
           gap: 20px;
           margin-bottom: 1.5vw;
           button{
             padding: 1vh 5vh;
             border-radius: 20px;
             font-weight: bold;
-            // &:first-child{
-            //   background-color: $dunkle-blau;
-            //   color: white;
-            //   transition: 1s ease-in-out;
-            //   &:hover{
-            //     color: $dunkle-blau;
-            //     background-color: white;
-            //     border: 2px solid $dunkle-blau;
-            //   }
-            // }
             &:first-child,&:nth-child(2){
               color: white;
               background-color: $dunkle-blau;
@@ -161,17 +120,11 @@ $hell-grau: #344456;
       }
       .footer{
         gap: 2vw;
-        div{
-          h4{
-
-          }
-          p{
-          }
-        }
       }
     }
   }
 }
+
 //Classes For Rotate the Current Image
 .r-90{
   transform: rotate(90deg);
@@ -187,6 +140,7 @@ $hell-grau: #344456;
   border: 1px solid black;
   border-radius: 20px;
 }
+
 @media (max-width: 992px){
   .selected-product{
     .path{

@@ -1,0 +1,21 @@
+//Variables
+$dunkle-blau: #223040;
+$hell-yellow: #fdda06;
+$hell-grau: #344456;
+
+button{
+  background-color: $dunkle-blau;
+  font-weight: bold;
+}
+@media (max-width: 767px){
+  .thoughts{
+    justify-content: center;
+  }
+  .touch,.contact-us{
+    text-align: center;
+  }
+  .form-check{
+    width: 130px;
+    margin: auto;
+  }
+}

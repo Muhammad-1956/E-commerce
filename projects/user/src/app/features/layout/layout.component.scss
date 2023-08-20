@@ -2,9 +2,11 @@
 $dunkle-blau: #223040;
 $hell-yellow: #fdda06;
 $hell-grau: #344456;
+
 body{
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .offer{
   font-size: .9rem;
   background-color: $dunkle-blau;
@@ -17,6 +19,7 @@ body{
     }
   }
 }
+
 .navbar{
   background-color: $dunkle-blau;
   li{
@@ -28,13 +31,25 @@ body{
       &:hover{
         color: $hell-yellow;
       }
-
+      &.active{
+        color: $hell-yellow;
+      }
     }
+  }
+  .active{
+    color: black
   }
   button{
     background-color: $hell-yellow;
+      color: white;
+
   }
 }
-.active{
-  color: black
+
+.container-fluid{
+  background-color: $dunkle-blau;
 }
+@media (max-width: 778px){
+.container, .container-sm {
+    max-width: 720px;
+}}

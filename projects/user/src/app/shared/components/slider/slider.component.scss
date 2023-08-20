@@ -65,7 +65,7 @@ $hell-yellow: #fdda06;
   transform: translateX(-100%)
 }
 .carousel-control-next, .carousel-control-prev{
-  transition: transform 1s ease-in-out;
+  transition: transform .8s ease-in-out;
 }
 .carousel-control-next-icon,.carousel-control-prev-icon{
     background-color: rgba(119, 114, 114, 0.645);

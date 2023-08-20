@@ -1,1 +1,48 @@
-<p>order-placement works!</p>
+<div class="container d-flex flex-column align-items-center my-4 p-2 rounded" *ngIf="!show">
+  <div class="content">
+      <div class="coupon">
+        <h4 class="border-bottom py-3">Checkout</h4>
+        <form class="d-flex justify-content-start flex-wrap gap-3 border-bottom py-3">
+          <input type="text" class="form-control" placeholder="Enter Coupon Code">
+          <button class="btn btn-success rounded">Apply Coupon</button>
+        </form>
+    </div>
+    <div class="payment">
+      <h4 class="py-2 border-bottom">Payment Details|Method</h4>
+      <ul>
+        <li><input type="radio"> Cash on Delivery</li>
+        <li><input type="radio"> Shopcart Card</li>
+        <li><input type="radio"> Paypal</li>
+        <li><input type="radio"> Credit or Debit card</li>
+      </ul>
+      <div class="images d-flex justify-content-start gap-2 my-2">
+        <img src="../../../../assets/31-314895_amazon-logo-png-amazon-png-transparent-png.png" alt="">
+        <img src="../../../../assets/telda-cards-flying.94a1060e.png" alt="">
+        <img src="../../../../assets/mastercard_PNG23.png" alt="">
+      </div>
+      <form>
+        <label for="email">Email*</label>
+        <input type="text" class="form-control" placeholder="Type here..." id="email" email required>
+        <label for="holderName">Card Holder Name*</label>
+        <input type="text" class="form-control" placeholder="Type here..." id="holderName" required>
+        <label for="cardNumber">Card Number*</label>
+        <input type="text" class="form-control" placeholder="0000*****1245" id="cardNumber" required>
+        <div class="d-flex justify-content-start gap-3 flex-wrap">
+          <div >
+            <label for="date">Expiry*</label>
+            <input type="date" class="form-control" id="date" required>
+          </div>
+          <div >
+            <label for="cvc">CVC*</label>
+            <input type="text" class="form-control" placeholder="000" id="cvc" required>
+          </div>
+        </div>
+      </form>
+      <p class="text-secondary">-Your transaction is secured with SSI encryption.</p>
+      <button class="btn">Buy Now</button>
+    </div>
+</div>
+</div>
+
+<!-- Spinner Component -->
+<app-spinner *ngIf="show"></app-spinner>

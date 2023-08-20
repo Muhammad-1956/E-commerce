@@ -1,9 +1,9 @@
-<!-- <section class="offer d-flex justify-content-center">
+<section class="offer d-flex justify-content-center text-center">
   <div class="py-2">
-    Limited-time offers: Mid-summer season sale on selected items - <span><a routerLink="" style="color: #fdda06;">SHOP NOW</a></span>
+    Limited-time offers: Mid-summer season sale on selected items - <span><a routerLink="products" style="color: #fdda06;">SHOP NOW</a></span>
   </div>
-</section> -->
-<nav class="navbar container-fluid navbar-expand-lg navbar-light">
+</section>
+<nav class="navbar container-fluid navbar-expand-lg navbar-light fixed">
   <div class="container">
     <!-- <a class="navbar-brand" routerLink="home">E-Commerce</a> -->
     <img src="assets/logo.png" alt="e-commerce-logo" style="width: 7%;">
@@ -18,42 +18,38 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="">Action</a></li>
-            <li><a class="dropdown-item" routerLink="">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="">Something else here</a></li>
-          </ul>
-        </li> -->
-        <li class="nav-item">
+        <li class="nav-item cart">
           <a class="nav-link" routerLinkActive="active" routerLink="cart">Cart</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="order">Order</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="home">Blog</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="home/blog">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="home">Watchlist</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="home">Contact</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="home/contact">Contact</a>
         </li>
       </ul>
       <div class="d-flex align-items-center">
         <!-- <span class="px-2 fs-7 fw-bold">Hello, Muhammad</span> -->
         <!-- <i class="bi bi-person-fill" style="color: blue;"></i> -->
         <h4 class="text-danger text-muted"></h4>
-        <button type="button" class="btn text-center px-4 py-2" (click)="logout()">Logout</button>
+        <button type="button" class="btn text-center fw-bold px-4 py-2" (click)="logout()">Logout</button>
       </div>
     </div>
   </div>
 </nav>
-<div class="container">
+
+<div class="container" *ngIf="!show">
   <router-outlet></router-outlet>
 </div>
+
+<div class="container-fluid" *ngIf="!show">
+  <div class="container">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<!-- Spinner Component -->
+<app-spinner *ngIf="show"></app-spinner>

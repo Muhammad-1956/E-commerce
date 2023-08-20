@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cart-listing',
@@ -6,10 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart-listing.component.scss']
 })
 export class CartListingComponent {
-  cart: any[]=[];
+  cart: any[]=[]
   total!: number;
-  constructor(){
+  show = true;
+  constructor(private title: Title){
     this.getProductsFromLocal()
+    this.show = false
+    this.title.setTitle('Cart')
   }
 
   //Get Products From Cart (Local Storage)
@@ -20,6 +24,7 @@ export class CartListingComponent {
     //Calculate Total Price of Products in cart
     this.getTotalPrice()
   }
+
   //Remove Product From Cart
   remove(index : number){
     this.cart= JSON.parse(localStorage.getItem("token")!)
@@ -37,11 +42,19 @@ export class CartListingComponent {
   getTotalPrice(){
     this.total =0
     this.cart.forEach(item =>{
-      this.total += Number(item.product.price)
+      this.total += item.product.price * item.quantity;
     })
   }
+
   //Update Total Price
   updateTotalPrice(){
     this.getTotalPrice()
+  }
+
+  //Update Cart Details
+  update(index: number)
+  {
+    localStorage.setItem("token", JSON.stringify(this.cart));
+    this.updateTotalPrice();
   }
 }

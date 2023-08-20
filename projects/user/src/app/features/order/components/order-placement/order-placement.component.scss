@@ -1,0 +1,60 @@
+//Variables
+$dunkle-blau: #223040;
+$hell-yellow: #fdda06;
+$hell-grau: #344456;
+
+.container{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .content{
+    width: 70%;
+    .coupon{
+      h4{
+        margin-bottom: 0px;
+      }
+      form{
+        input{
+          width: 50%;
+          @media (max-width: 506px){
+            width: 100%;
+          }
+        }
+        @media (max-width: 506px){
+          button{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .payment{
+    ul {
+      padding-left: 1rem;
+      li{
+        list-style: none;
+        input{
+          cursor: pointer;
+        }
+      }
+    }
+    .images{
+      img{
+        width: 55px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+    form{
+      label{
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
+        input{
+          margin-bottom: .8rem;
+        }
+    }
+    button{
+      color: white;
+      background-color: $dunkle-blau;
+    }
+  }
+}

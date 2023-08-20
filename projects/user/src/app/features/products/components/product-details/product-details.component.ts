@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
 import { AuthService } from 'projects/user/src/app/auth/services/auth.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -14,42 +15,48 @@ export class ProductDetailsComponent {
   product_id: any;
   selected_product!: Product | any;
   installment: any;
-  remaining_items!: number;
   quantity: number = 1;
   cart: any[]=[]
-  // @Output() added = new EventEmitter();
-  constructor(private acRoute: ActivatedRoute,private service: ProductService, private title: Title, private authService: AuthService){
+  show= true;
+  subTitle = 'Details'
+  constructor(
+    private acRoute: ActivatedRoute,
+    private service: ProductService,
+    private title: Title,
+    private authService: AuthService,
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    private viewportScroller: ViewportScroller){
+
+    this.viewportScroller.scrollToPosition([0,0]);
     this.product_id = this.acRoute.snapshot.paramMap.get('id')
     this.service.getProduct(this.product_id).subscribe((res: any)=>{
-      this.selected_product= res
-      this.calculate_installment();
-      this.remaining_items = this.generateRandomNumber();
+    this.selected_product= res
+    this.prepare_product();
     },err => {
       alert(err.message)
+      this.show = false
     })
+    this.title.setTitle(`Product ${this.subTitle}`)
   }
   ngOnInit(){
-    this.toggleClass(0);
+
   }
+
   //Calculate Installment for Product.
   calculate_installment(){
     this.installment= this.selected_product.price / 6;
     this.installment= parseFloat(this.installment.toFixed())
   }
 
-  //Generate Random Number (1-50) as Remaining items.
-  generateRandomNumber(): number {
-    return Math.floor(Math.random() * 50) + 1;
-  }
-
   //Increase Quantity Function
   increase(){
-    (this.quantity != this.remaining_items)? this.quantity += 1: null;
+    (this.quantity != this.selected_product.remaining_items)? this.quantity += 1: null;
   }
 
   //Decrease Quantity Function
   decrease(){
-  (this.quantity >= 1)? this.quantity -= 1: false;
+  (this.quantity > 1)? this.quantity -= 1: false;
   }
 
   //Change the Current Image
@@ -124,62 +131,19 @@ export class ProductDetailsComponent {
     ]
     if("token" in localStorage){
       this.cart= JSON.parse(localStorage.getItem("token")!)
-      // this.cart.find(custom_item => custom_item.product?.id == this.selected_product?.id) ? alert(`Product is already exist in your cart`): this.addProduct();
-      // this.cart.find(custom_item => custom_item?.quantity == this.quantity) ? alert(`Product is already exist in your cart`): this.updateProductQuantity();
-      for(let i =0; i<= this.cart.length; i++){
-        if(this.cart[i]?.product.id == this.selected_product.id){
-          if(this.cart[i].quantity == this.quantity){
-            alert('exist')
-          } else{
-            this.updateProductQuantity(i)
-          }
-        }else{
-          this.addProduct();
-        }
-      }
+      this.cart.find(custom_item => custom_item.product?.id == this.selected_product?.id) ? alert(`Product is already exist in your cart`): this.addProduct();
     }else{
       this.addProduct();
     }
-          // for(let i=0; i<= tokens.length;){
-          //   if(tokens[i]?.token == this.authService.userToken){
-          //     this.token_index = i
-          //     i++;
-          //   }
-          // }
-
-          // console.log(tokens[this.token_index]?.items)
-          // token[0].token
-        //   this.cart.push({product: this.selected_product, quantity: this.quantity})
-        //   localStorage.setItem("tokens", JSON.stringify( this.cart))
-        // console.log(this.authService.userToken)
   }
   addProduct(){
     this.cart.push({product:this.selected_product, quantity: this.quantity})
     localStorage.setItem("token", JSON.stringify(this.cart))
   }
-
-  //Update Product
-  updateProductQuantity(index: number){
-    this.cart[index]= {product:this.selected_product,quantity: this.quantity}
-    localStorage.setItem("token", JSON.stringify(this.cart))
+  //Prepare Product Function
+  prepare_product(){
+    this.toggleClass(0);
+    this.calculate_installment();
+    this.show = false
   }
-
-
-
-
-
-
-
-
-
-
-  // ngOnInit(){
-    // this.service.getProduct(this.product_id).subscribe((res: any)=>{
-      //   this.selected_product= res
-      //   console.log(this.selected_product)
-      // },err => {
-        //   alert(err.message)
-        // })
-        // this.title.setTitle(`${this.selected_product?.name} Product`)
-  // }
 }

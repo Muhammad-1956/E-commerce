@@ -1,10 +1,10 @@
-<div class="selected-product d-flex flex-column">
+<div #scrollTarget class="selected-product d-flex flex-column mt-1 mb-4" *ngIf="!show">
   <div class="path">
     <p class="text-secondary fw-bold">Home / Popular Products / Product Details / <span class="text-dark">{{selected_product?.name}}</span></p>
   </div>
   <div class="product-details d-flex justify-content-between flex-wrap">
     <div class="images d-flex flex-column">
-      <img id="image" src="{{selected_product?.imageUrl}}" alt="Product Image Error">
+      <img class="rounded" id="image" src="{{selected_product?.imageUrl}}" alt="Product Image Error">
       <div class="d-flex justify-content-between">
         <img id="image-0" src="{{selected_product?.imageUrl}}" (click)="change(0)" alt="">
         <img id="image-1" src="{{selected_product?.imageUrl}}" (click)="change(1)" alt="">
@@ -18,11 +18,11 @@
       <p>a perfect balance of exhilarating high-fidelity audio and the effortless magic of {{selected_product?.name}}</p>
       </div>
       <div class="body">
-        <div class="section-1">
+        <div class="financing">
           <h3 class="fw-bold"><span>{{selected_product?.price | currency:'USD':'symbol':'1.2-2'}}</span> or {{installment}}/month</h3>
       <p class="text-secondary">Suggested payments with 6 months special financing</p>
         </div>
-      <div class="section-2 py-3">
+      <div class="palette-color py-3">
         <h4 class="fw-bold">Choose a Color</h4>
         <div class="colors d-flex justify-content-start">
           <span></span>
@@ -31,18 +31,18 @@
           <span></span>
         </div>
       </div>
-      <div class="section-3 d-flex justify-content-start align-items-center flex-wrap">
+      <div class="quantity d-flex justify-content-start align-items-center flex-wrap">
         <div class="counter">
           <span (click)="decrease()">-</span>
           <span>{{quantity}}</span>
           <span (click)="increase()">+</span>
         </div>
         <div class="remaining-items">
-          <p>Only <span class="fw-bold">{{remaining_items}} Items</span> Left! Don't miss it</p>
+          <p>Only <span class="fw-bold">{{selected_product.remaining_items}} Items</span> Left! Don't miss it</p>
         </div>
       </div>
-      <div class="section-4 d-flex justify-content-start align-items-center">
-        <button class="btn">{{'buy now' | titlecase}}</button>
+      <div class="sale-process d-flex justify-content-start align-items-center">
+        <button class="btn" routerLink="../../../order">{{'buy now' | titlecase}}</button>
         <button class="btn" (click)="addToCart()">{{'add to cart'| titlecase}}</button>
       </div>
     </div>
@@ -59,3 +59,6 @@
     </div>
   </div>
 </div>
+
+<!-- Spinner Component -->
+<app-spinner class="mt-3" *ngIf="show"></app-spinner>

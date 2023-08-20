@@ -1,0 +1,43 @@
+//Variables
+$dunkle-blau: #223040;
+$hell-yellow: #fdda06;
+$hell-grau: #344456;
+
+.container{
+  margin-top: 8rem !important;
+  @media (max-width:768px){
+    margin-top: 1rem !important;
+  }
+  .register-container{
+      form{
+        input{
+          padding: 10px 0px 10px 5px;
+        }
+        button{
+          background-color: rgb(41, 114, 163);
+          color: white;
+        }
+        a{
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+      .card{
+        .card-body{
+          img{
+            width:24px;
+            height:24px;
+          }
+        }
+      }
+  }
+  .image-container{
+    @media (max-width:768px){
+      height: 228px;
+      overflow: hidden;
+    }
+    img{
+      height: 56vh
+    }
+  }
+}

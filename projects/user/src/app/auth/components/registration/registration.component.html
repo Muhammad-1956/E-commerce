@@ -1,1 +1,28 @@
-<p>registration works!</p>
+<section class="container my-5 shadow rounded p-3">
+  <div class="register-container row">
+    <div class="col-md-6 col-sm-12">
+      <div class="image-container">
+        <img class="w-100 rounded" src="../../../../assets/e-commerce-website-features-list.png.webp" alt="">
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+    <h1 class="text-center mb-3 text-dark text-muted fw-bold">Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password">
+      </div>
+      <button class="btn col-sm-12 col-md-5 px-5 py-2 fw-bold" (click)="register()">Register</button>
+      <div class="row mt-1">
+        <div>
+          <a routerLink="">Have an Account ? <span class="text-danger">Login</span></a>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</section>

@@ -1,22 +1,29 @@
-<div class="container">
-  <div class="frame row rounded my-2 p-3">
+<div class="my-4" *ngIf="!show">
+  <div class="frame p-4 rounded d-flex flex-column align-items-center justify-content-center text-center" *ngIf="this.cart.length == 0" style="height: 30vh;">
+    <h5 class="fw-bold mx-auto">{{'there is no products added.' | titlecase}}</h5>
+      <a routerLink="../products">{{ 'continue shopping' | titlecase}}</a>
+  </div>
+  <div class="frame row rounded my-2 p-3" *ngIf="this.cart.length != 0">
     <div class="row border-bottom d-flex align-items-center py-1" *ngFor="let product of cart; index as index">
       <div class="col-3">
         <img src="{{product.product.imageUrl}}" alt="{{product.product.name}}" class="img-fluid rounded-circle border">
       </div>
-      <div class="col-7 d-flex justify-content-between align-items-center">
+      <div class="col-9 d-flex justify-content-between align-items-center">
         <h3>{{ product.product.name }}</h3>
         <p>Price: {{ product.product.price | currency }}</p>
-        <p>Quantity: {{ product.quantity }}</p>
-      </div>
-      <div class="col-2 d-flex justify-content-end">
+        <p class="d-inline-block">Quantity: {{ product.quantity }}</p>
+        <input type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" (change)="update(index)" min="1">
         <button class="btn btn-danger my-auto" (click)="remove(index)">Remove</button>
       </div>
     </div>
-    <div class="row py-3">
-      <div class="col-md-12 d-flex justify-content-end">
-        <h4>Total: {{ this.total| currency }}</h4>
+    <div class="row pt-3">
+      <div class="col-md-12 d-flex justify-content-between">
+          <h4>Total price of these products is: {{ this.total| currency }}</h4>
+          <a routerLink="../order" class="btn payment">{{'go to payment'| titlecase}}</a>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Spinner Component -->
+<app-spinner *ngIf="show"></app-spinner>

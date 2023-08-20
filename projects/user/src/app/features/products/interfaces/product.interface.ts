@@ -1,6 +1,7 @@
 export class Product{
   id?: number
   name?: string
-  price?: string
+  price?: number
+  remaining_items?: number
   imageUrl?: string
 }

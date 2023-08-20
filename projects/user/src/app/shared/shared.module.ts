@@ -7,7 +7,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { RouterModule } from '@angular/router';
 import { SliderComponent } from './components/slider/slider.component';
 import { FormsModule } from '@angular/forms';
-// import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
