@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
 import { CartService } from '../../../cart/services/cart.service';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-product-listing',
   templateUrl: './product-listing.component.html',
@@ -15,9 +16,13 @@ export class ProductListingComponent {
   latest_products!: any[];
   cart: any[]= []
   show = true;
-  constructor(private service: ProductService, private title: Title){
+  urlSegments: any;
+  constructor(private service: ProductService, private title: Title, private acRoute: ActivatedRoute){
     this.getPopularProducts();
-    this.title.setTitle('Products')
+    this.urlSegments = this.acRoute.snapshot.url
+    if(this.urlSegments == ''){
+      this.title.setTitle('Products')
+    }
   }
   //Get Popular Products Function
   getPopularProducts(){

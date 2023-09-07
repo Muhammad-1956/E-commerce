@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" [class.show]="isButtonActive"  id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="home">Home</a>
+          <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="home/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
@@ -32,8 +32,6 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-        <!-- <span class="px-2 fs-7 fw-bold">Hello, Muhammad</span> -->
-        <!-- <i class="bi bi-person-fill" style="color: blue;"></i> -->
         <h4 class="text-danger text-muted"></h4>
         <button type="button" class="btn text-center fw-bold px-4 py-2" (click)="logout()">Logout</button>
       </div>

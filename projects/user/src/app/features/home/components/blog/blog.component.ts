@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -8,10 +9,14 @@ import { Title } from '@angular/platform-browser';
 })
 export class BlogComponent {
   show= true;
+  urlSegments: any;
 
-  constructor(private title: Title){
+  constructor(private title: Title, private acRoute: ActivatedRoute){
     this.show = false
-    this.title.setTitle('Blogs')
+    this.urlSegments = this.acRoute.snapshot.url[0]?.path
+    if(this.urlSegments == 'blog'){
+      this.title.setTitle('Blog')
+    }
   }
 
 

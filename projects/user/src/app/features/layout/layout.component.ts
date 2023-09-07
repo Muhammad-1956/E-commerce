@@ -14,9 +14,8 @@ export class LayoutComponent {
   isButtonActive= false;
   cart:any[]=[]
   show = true
-  constructor(private service: AuthService,private ngZone: NgZone, private title: Title){
+  constructor(private service: AuthService,private ngZone: NgZone){
     this.spin();
-    this.title.setTitle('Home')
   }
 
   logout(){
