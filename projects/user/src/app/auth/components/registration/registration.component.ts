@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-registration',
@@ -9,8 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationComponent {
   registerForm!: FormGroup
-  constructor(private fb: FormBuilder, private service: AuthService){
+  constructor(private fb: FormBuilder, private service: AuthService, private title: Title){
     this.createForm();
+    this.title.setTitle("Sign Up")
   }
   //Create Reactive Form Function
   createForm(){
