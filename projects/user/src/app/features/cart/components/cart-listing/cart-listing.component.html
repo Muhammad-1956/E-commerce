@@ -13,7 +13,8 @@
         <p>Price: {{ product.product.price | currency }}</p>
         <p class="d-inline-block">Quantity: {{ product.quantity }}</p>
         <input type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" (change)="update(index)" min="1">
-        <button class="btn btn-danger my-auto" (click)="remove(index)">X</button>
+        <button class="btn btn-danger my-auto d-md-block d-none" (click)="remove(index)">Remove</button>
+        <button class="btn btn-danger my-auto d-md-none d-block" (click)="remove(index)">X</button>
       </div>
     </div>
     <div class="row pt-3">
