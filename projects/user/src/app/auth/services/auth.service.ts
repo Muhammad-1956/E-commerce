@@ -20,10 +20,10 @@ export class AuthService {
       this.userToken = resolve.user._delegate.accessToken;
 
       if("token" in localStorage){
-        this.router.navigate(['features/home'])
+        this.router.navigate(['features/home/home'])
       }else{
         localStorage.setItem("token", JSON.stringify(this.products));
-        this.router.navigate(['features/home'])
+        this.router.navigate(['features/home/home'])
       }
     },
     err=>{
