@@ -20,7 +20,7 @@ export class ProductListingComponent {
   constructor(private service: ProductService, private title: Title, private acRoute: ActivatedRoute){
     this.getPopularProducts();
     this.urlSegments = this.acRoute.snapshot.url
-    if(this.urlSegments == ''){
+    if(this.urlSegments == 'listing'){
       this.title.setTitle('Products')
     }
   }
