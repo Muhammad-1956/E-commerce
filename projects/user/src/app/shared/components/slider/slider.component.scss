@@ -30,6 +30,12 @@ $hell-yellow: #fdda06;
     }
     .carousel-caption{
       padding-bottom: 0px;
+      @media(max-width: 767px){
+        p,h1,button{
+          top: 0px;
+          margin: 0px;
+        }
+      }
       &:nth-child(2){
         // transform: translateY(-100%);
         // transition: transform .8s ease-in-out;
@@ -51,6 +57,9 @@ $hell-yellow: #fdda06;
         background-color: $hell-yellow;
         color: black;
         font-size: 1.3vw;
+        @media(max-width: 767px){
+          font-size: 3vw;
+        }
         margin-top: .5vh;
       }
     }

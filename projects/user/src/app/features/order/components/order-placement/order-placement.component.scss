@@ -55,6 +55,10 @@ $hell-grau: #344456;
     button{
       color: white;
       background-color: $dunkle-blau;
+      width: 25%;
+      @media(max-width: 767px){
+        width: 100%;
+      }
     }
   }
 }
